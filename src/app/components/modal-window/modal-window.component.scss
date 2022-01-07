@@ -1,0 +1,29 @@
+.mat-form-field{
+    width: 100%;
+}
+h2,h3{
+    color: #4e4e4e;
+}
+button{
+    float: right;
+}
+.allCommentsTitle{
+    font-weight: 500;
+}
+.allCommentsTitle,.allComments{
+    margin-top: 30px;
+}
+.commentImg img{
+    object-fit: contain;
+    max-width: -webkit-fill-available;
+}
+.commentText{
+    font-size: 20px;
+}
+.commentBox{
+    background-color: beige;
+    height: auto;
+    color: #242424;
+    border-radius: 30px;
+    background-color: #e5dfdf;
+}

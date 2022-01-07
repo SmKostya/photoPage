@@ -7,7 +7,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule }   from '@angular/common/http';
 import { ModalWindowComponent } from './components/modal-window/modal-window.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialog, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -17,12 +22,16 @@ import { MatDialog, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/d
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    HttpClientModule, BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [   
-    { provide: MatDialog, useValue: {} },
-    { provide: MAT_DIALOG_DATA, useValue: [] },
+
   ],
   bootstrap: [AppComponent]
 })

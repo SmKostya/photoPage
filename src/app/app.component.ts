@@ -1,7 +1,8 @@
-import { Component, Inject } from '@angular/core';
+import { Component} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { HttpService} from './http.service';
 import {Photo} from './photo';
-
+import { ModalWindowComponent } from './components/modal-window/modal-window.component';
 
 
 
@@ -15,18 +16,28 @@ import {Photo} from './photo';
 })
 
 export class AppComponent{ 
+  city: string = "";
+  name: string = "";
+  food_from_modal: string = "";
+
+
   title = 'photoPage';
   photoDate: Photo[]=[];
-  constructor( private httpService: HttpService){
+  constructor(public dialog: MatDialog, private httpService: HttpService){
 
   }
-  
+  openDialog(id:number): void {
+    const dialogRef = this.dialog.open(ModalWindowComponent, {
+      width: '650px',
+      data: { name: this.name, animal: this.city , id}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(id);
+
+    });
+  }
   ngOnInit(){
     this.httpService.getData().subscribe((data: any) => this.photoDate=data);
-  }
-
-  public openModal(id:number){
-    console.log("Works" + id);
-  }
-  
+  }  
 }

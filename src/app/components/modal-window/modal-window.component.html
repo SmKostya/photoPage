@@ -1,0 +1,48 @@
+<div mat-dialog-content ng-if="flag">
+
+    
+
+    <img src={{photoDate?.url}} alt="" srcset="">
+    <!--<mat-form-field>
+        <mat-label>Favorite City</mat-label>
+        <input matInput [(ngModel)]="data.city">
+    </mat-form-field>
+
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Get Food</button>
+        <button mat-button [mat-dialog-close]="data.city" cdkFocusInitial>Get City</button>
+    </div>
+
+-->
+
+
+<mat-form-field>
+    <h2 mat-dialog-title>Add new comment</h2>
+    <input matInput [(ngModel)]="food">
+</mat-form-field>
+<button mat-raised-button color="primary" [mat-dialog-close]="data.city" cdkFocusInitial>Add comment</button>
+<h3 class="allCommentsTitle" mat-dialog-title >All comments</h3>
+<div class="allComments container d-flex">
+    <div class="row comment" *ngFor="let comment of photoDate.comments">
+        <p> 
+            {{getDate(comment.date)}}
+            
+        </p>
+        <div class="col-sm-3"> 
+            <div class="commentImg">
+                <img src="../../../assets/img/default.png" alt="" srcset="">
+            </div>
+            <div class="text-center"> 
+            Anonim 
+            </div>
+        </div>
+        <div class="col-sm-9 commentBox d-flex align-items-center"> 
+            <div class="commentText">
+                {{comment.text}}
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</div>
