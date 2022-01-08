@@ -1,3 +1,10 @@
+.main{
+    transition: .25s;
+}
+.newComment{
+    margin-top: 20px;
+    
+}
 .mat-form-field{
     width: 100%;
 }
@@ -35,7 +42,9 @@ button{
 .commentImg,.commentLogin,.commentDateTime{
     font-family: "LetoFont";
 }
-
+.main{
+    display: inline-block !important;
+}
 @media only screen and (max-width: 820px) {
     .bigSizeImg{
         width: 550px;

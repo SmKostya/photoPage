@@ -16,25 +16,15 @@ import { ModalWindowComponent } from './components/modal-window/modal-window.com
 })
 
 export class AppComponent{ 
-  city: string = "";
-  name: string = "";
-  food_from_modal: string = "";
-
-
   title = 'photoPage';
   photoDate: Photo[]=[];
   constructor(public dialog: MatDialog, private httpService: HttpService){
 
   }
-  openDialog(id:number): void {
-    const dialogRef = this.dialog.open(ModalWindowComponent, {
+  openDialog(id:number, url:string): void {
+    this.dialog.open(ModalWindowComponent, {
       width: '650px',
-      data: {id}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(id);
-
+      data: {id, url}
     });
   }
   ngOnInit(){

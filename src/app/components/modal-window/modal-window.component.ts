@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpService} from '../../http.service';
 import {PhotoComments} from '../../photo';
+
 @Component({
   selector: 'app-modal-window',
   templateUrl: './modal-window.component.html',
@@ -10,9 +11,15 @@ import {PhotoComments} from '../../photo';
     HttpService,
   ]
 })
+
 export class ModalWindowComponent implements OnInit {
-  urlImage:string = "http://localhost:4200/assets/img/1407052894.gif";
-  food: string = "";
+  public urlImage:string = this.data.url;
+  openModal:boolean = false;
+  //public urlImage:string = "";
+  newComment: any;
+  userName: any;
+  postUrl:string = "";
+  visibility: string = "visibility";
   photoDate: PhotoComments= {
     "url": "",
     id: 0,
@@ -23,28 +30,38 @@ export class ModalWindowComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
+    this.openModal = false;
     this.httpService.getDataPhoto(this.data.id).subscribe((data: any) => this.photoDate=data);
     if (this.photoDate.url != ""){
       this.urlImage = this.photoDate.url;
-      window.scrollTo(0, 0);
     } 
   }
-  ngDoCheck() {    
-    if (this.photoDate.url != ""){
+  
+  ngDoCheck() {  
+
+    if (this.photoDate.url != "" && !this.openModal){
       this.urlImage = this.photoDate.url;
-      window.scrollTo(0, 0);
+      
+      setTimeout(() =>
+      
+      this.visibility = ""
+      ,20);
+      setTimeout(() =>
+      
+      document.getElementsByClassName("main")[0].scrollTo(0,0)
+      ,40);
+      
+      this.openModal = true;
     } 
   }
-  getDate(date:number): any{
+  dateTimeConvert(date:number): any{
     return new Date(date).toLocaleString();
   }
-  onNoClick(): void {
-    this.dialogRef.close({
-      food: this.food
-    });
-  }
-
-
-
+  saveComment(): void {
+    this.newComment =  (<HTMLInputElement>document.getElementById("userMessage")).value.toString();
+    this.userName =  (<HTMLInputElement>document.getElementById("userName")).value.toString();
+    this.httpService.postComment(this.data.id, this.userName, this.newComment); 
+    
+  }  
   
 }

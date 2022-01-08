@@ -4,7 +4,7 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <div class="col" *ngFor="let photo of photoDate">
         <div class="card shadow-sm hover-image-scale">
-          <img src={{photo?.url}} alt="" srcset="" (click)="openDialog(photo.id)">
+          <img src={{photo?.url}} alt="" srcset="" (click)="openDialog(photo.id, photo.url)">
         </div>
       </div>
     </div>

@@ -1,15 +1,24 @@
-<div mat-dialog-content class="main">
+<div mat-dialog-content class="main" class = {{visibility}}>
     <img class="bigSizeImg" src={{urlImage}} alt="Загрузка..." srcset="" width="600px" height="400px">
-    <mat-form-field>
-        <h2 mat-dialog-title>Add new comment</h2>
-        <input matInput [(ngModel)]="food">
-    </mat-form-field>
-    <button mat-raised-button color="primary" [mat-dialog-close]="data.city" cdkFocusInitial>Add comment</button>
+
+    <form class="newComment">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Your name:</mat-label>
+          <input (keydown.enter)='saveComment()' id="userName" matInput placeholder="Enter Your name...">
+        </mat-form-field>
+        
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Your message:</mat-label>
+          <textarea (keydown.enter)='saveComment()' id="userMessage" matInput placeholder="Enter your message..."></textarea>
+        </mat-form-field>
+      </form>
+
+    <button mat-raised-button color="primary" (click) = "saveComment()">Add comment</button>
     <h3 class="allCommentsTitle" mat-dialog-title >All comments</h3>
-    <div class="allComments container d-flex">
+    <div class="allComments container d-flex" class = {{visibility}}>
         <div class="row" *ngFor="let comment of photoDate.comments">
             <p> 
-                <span class="commentLogin">Anonim</span> <span class="commentDateTime"> {{getDate(comment.date)}}</span> 
+                <span class="commentLogin">Anonim</span> <span class="commentDateTime"> {{dateTimeConvert(comment.date)}}</span> 
                 
             </p>
             <div class="col-sm-3 commentImg"> 
