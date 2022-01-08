@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-
+@font-face{
+    font-family: 'LetoFont';
+    src: url('./assets/fonts/Leto.otf');
+    font-weight: normal;
+    font-style: normal;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@media only screen and (max-width: 490px) {
+
+    .cdk-overlay-pane{
+        max-width:90vw !important;
+    }
+}

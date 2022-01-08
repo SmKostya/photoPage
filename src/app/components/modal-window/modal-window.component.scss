@@ -19,11 +19,113 @@ button{
 }
 .commentText{
     font-size: 20px;
+    padding-left: 10px;
 }
 .commentBox{
+    font-style: italic;
     background-color: beige;
     height: auto;
-    color: #242424;
-    border-radius: 30px;
-    background-color: #e5dfdf;
+    color: #29292c;
+    border-radius: 18px;
+    background-color: #e0e3ff;
+}
+.commentLogin{
+    display: none;
+}
+.commentImg,.commentLogin,.commentDateTime{
+    font-family: "LetoFont";
+}
+
+@media only screen and (max-width: 820px) {
+    .bigSizeImg{
+        width: 550px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
+@media only screen and (max-width: 746px) {
+    .bigSizeImg{
+        width: 500px;
+    }
+}
+@media only screen and (max-width: 686px) {
+    .bigSizeImg{
+        width: 450px;
+    }
+}
+@media only screen and (max-width: 634px) {
+    .bigSizeImg{
+        width: 400px;
+    }
+    .commentImg{
+        display: none;
+    }
+    .commentBox{
+        min-width: 100%;
+        min-height: 50px;
+        color: #3a3b40;
+        border-radius: 18px;
+        background-color: #c2c6ed;
+    }
+    .commentLogin{
+        display: inline;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .bigSizeImg{
+        width: 350px;
+    }
+    h2{
+        font-size: 16px;
+    }
+    h3{
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 490px) {
+
+    .allCommentsTitle{
+        margin-top: 40px;
+    }
+    .allComments {
+        margin-top: 0px;
+    }
+    .commentText{
+        font-size: 16px;
+    }
+    #cdk-overlay-0{
+        max-width:90vw !important;
+    }
+}
+@media only screen and (max-width: 430px) {
+    .bigSizeImg{
+        width: 300px;
+    }
+    .commentLogin, .commentDateTime{
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 383px) {
+    .bigSizeImg{
+        width: 250px;
+    }
+    button{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    h2{
+        margin-bottom: 0px;
+    }
+}
+@media only screen and (max-width: 322px) {
+    .bigSizeImg{
+        width: 210px;
+    }
+}
+@media only screen and (max-width: 279px) {
+    .bigSizeImg{
+        width: 180px;
+    }
 }

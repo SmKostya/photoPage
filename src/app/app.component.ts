@@ -29,7 +29,7 @@ export class AppComponent{
   openDialog(id:number): void {
     const dialogRef = this.dialog.open(ModalWindowComponent, {
       width: '650px',
-      data: { name: this.name, animal: this.city , id}
+      data: {id}
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -1,6 +1,16 @@
-.album img{
-    cursor: pointer;
-}
+.hover-image-scale {
+
+    overflow: hidden;
+    img{
+        transition: 1s; 
+        display: block; 
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+  }
+
 .mat-dialog-container{
     min-width: 650px !important;
 }
