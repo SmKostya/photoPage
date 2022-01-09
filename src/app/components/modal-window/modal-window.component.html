@@ -4,16 +4,21 @@
     <form class="newComment">
         <mat-form-field class="full-width" appearance="fill">
           <mat-label>Your name:</mat-label>
-          <input (keydown.enter)='saveComment()' id="userName" matInput placeholder="Enter Your name...">
+          <input (keydown.enter)='saveComment()' id="userName" matInput placeholder="Enter Your name..." required>
         </mat-form-field>
         
         <mat-form-field class="full-width" appearance="fill">
           <mat-label>Your message:</mat-label>
-          <textarea (keydown.enter)='saveComment()' id="userMessage" matInput placeholder="Enter your message..."></textarea>
+          <textarea (keydown.enter)='saveComment()' id="userMessage" matInput placeholder="Enter your message..." required></textarea>
         </mat-form-field>
+        <div class="alert alert-danger" class = {{errorInput}}>
+            <strong>Warning!</strong> {{errorInput}}
+          </div>
+        
+        <button  type="submit" class="submitValidate" mat-raised-button color="primary" (click)="validate()">Add comment</button>
       </form>
 
-    <button mat-raised-button color="primary" (click) = "saveComment()">Add comment</button>
+    
     <h3 class="allCommentsTitle" mat-dialog-title >All comments</h3>
     <div class="allComments container d-flex" class = {{visibility}}>
         <div class="row" *ngFor="let comment of photoDate.comments">

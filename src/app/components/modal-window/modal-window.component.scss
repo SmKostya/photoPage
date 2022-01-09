@@ -45,6 +45,9 @@ button{
 .main{
     display: inline-block !important;
 }
+.errorInput{
+    display: none;
+}
 @media only screen and (max-width: 820px) {
     .bigSizeImg{
         width: 550px;

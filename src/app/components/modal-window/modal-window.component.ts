@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import { HttpService} from '../../http.service';
 import {PhotoComments} from '../../photo';
+import { PostMessageSuccessComponent } from '../../components/post-message-success/post-message-success.component';
 
 @Component({
   selector: 'app-modal-window',
@@ -15,17 +16,19 @@ import {PhotoComments} from '../../photo';
 export class ModalWindowComponent implements OnInit {
   public urlImage:string = this.data.url;
   openModal:boolean = false;
-  //public urlImage:string = "";
   newComment: any;
   userName: any;
   postUrl:string = "";
+  errorInput:string = "errorInput";
   visibility: string = "visibility";
   photoDate: PhotoComments= {
     "url": "",
     id: 0,
     comments: [{"id":0,"text":"","date":0},]
   };
-  constructor(private httpService: HttpService,
+  constructor(
+    public dialog: MatDialog,
+    private httpService: HttpService,
     public dialogRef: MatDialogRef<ModalWindowComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -41,16 +44,12 @@ export class ModalWindowComponent implements OnInit {
 
     if (this.photoDate.url != "" && !this.openModal){
       this.urlImage = this.photoDate.url;
-      
       setTimeout(() =>
-      
       this.visibility = ""
       ,20);
       setTimeout(() =>
-      
       document.getElementsByClassName("main")[0].scrollTo(0,0)
       ,40);
-      
       this.openModal = true;
     } 
   }
@@ -58,10 +57,27 @@ export class ModalWindowComponent implements OnInit {
     return new Date(date).toLocaleString();
   }
   saveComment(): void {
+    this.httpService.postComment(this.data.id, this.userName, this.newComment); 
+  }  
+  validate(): void{
     this.newComment =  (<HTMLInputElement>document.getElementById("userMessage")).value.toString();
     this.userName =  (<HTMLInputElement>document.getElementById("userName")).value.toString();
-    this.httpService.postComment(this.data.id, this.userName, this.newComment); 
-    
-  }  
-  
+    if(this.newComment.length > 0 && this.userName.length > 0 ){
+      this.saveComment();
+      this.openSuccessMessage();
+      this.errorInput = "errorInput";
+    }else{
+      this.errorInput = "";
+      if (this.userName.length == 0 && this.newComment.length == 0){
+        this.errorInput = "Enter username and comment text.";
+      } else if (this.newComment.length == 0){
+        this.errorInput = "Enter comment text.";
+      } else {
+        this.errorInput = "Enter username.";
+      }
+    }
+  }
+  openSuccessMessage(): void{
+    this.dialog.open(PostMessageSuccessComponent);
+  }
 }

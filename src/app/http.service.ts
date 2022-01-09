@@ -1,7 +1,6 @@
-import {ErrorHandler, Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { catchError, lastValueFrom, map, Observable, throwError } from 'rxjs';
-import { PhotoComments } from './photo';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {lastValueFrom} from 'rxjs';
   
 @Injectable()
 export class HttpService{

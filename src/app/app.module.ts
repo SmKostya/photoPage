@@ -12,12 +12,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { PostMessageSuccessComponent } from './components/post-message-success/post-message-success.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalWindowComponent,
+    PostMessageSuccessComponent,
   ],
   imports: [
     BrowserModule,
