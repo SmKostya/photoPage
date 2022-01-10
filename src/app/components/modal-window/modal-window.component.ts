@@ -41,7 +41,7 @@ export class ModalWindowComponent implements OnInit {
   }
   
   ngDoCheck() {  
-
+    
     if (this.photoDate.url != "" && !this.openModal){
       this.urlImage = this.photoDate.url;
       setTimeout(() =>

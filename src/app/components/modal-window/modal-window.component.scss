@@ -48,29 +48,18 @@ button{
 .errorInput{
     display: none;
 }
+
 @media only screen and (max-width: 820px) {
     .bigSizeImg{
-        width: 550px;
+        width: 73vw !important;
         height: auto;
         margin-left: auto;
         margin-right: auto;
         display: block;
     }
 }
-@media only screen and (max-width: 746px) {
-    .bigSizeImg{
-        width: 500px;
-    }
-}
-@media only screen and (max-width: 686px) {
-    .bigSizeImg{
-        width: 450px;
-    }
-}
 @media only screen and (max-width: 634px) {
-    .bigSizeImg{
-        width: 400px;
-    }
+   
     .commentImg{
         display: none;
     }
@@ -86,9 +75,7 @@ button{
     }
 }
 @media only screen and (max-width: 550px) {
-    .bigSizeImg{
-        width: 350px;
-    }
+
     h2{
         font-size: 16px;
     }
@@ -112,17 +99,13 @@ button{
     }
 }
 @media only screen and (max-width: 430px) {
-    .bigSizeImg{
-        width: 300px;
-    }
+
     .commentLogin, .commentDateTime{
         font-size: 12px;
     }
 }
 @media only screen and (max-width: 383px) {
-    .bigSizeImg{
-        width: 250px;
-    }
+
     button{
         width: 100%;
         margin-bottom: 10px;
@@ -132,12 +115,8 @@ button{
     }
 }
 @media only screen and (max-width: 322px) {
-    .bigSizeImg{
-        width: 210px;
-    }
+
 }
 @media only screen and (max-width: 279px) {
-    .bigSizeImg{
-        width: 180px;
-    }
+ 
 }
